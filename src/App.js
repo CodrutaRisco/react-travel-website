@@ -7,6 +7,7 @@ import Services from "./components/pages/Services";
 import Products from "./components/pages/Products";
 import SignUp from "./components/pages/SignUp";
 import SignIn from "./components/pages/SignIn";
+import Profile from "./components/pages/Profile"; // Import the Profile component
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </Router>
     </>

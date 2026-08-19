@@ -82,21 +82,35 @@ function Navbar() {
                 Products
               </Link>
             </li>
-            <li className="nav-item">
-              {user ? (
-                <button className="nav-links-mobile" onClick={handleLogout}>
-                  Logout
-                </button>
-              ) : (
+
+            {user && (
+              <li className="nav-item">
                 <Link
-                  to="/sign-up"
-                  className="nav-links-mobile"
+                  to="/profile"
+                  className="nav-links"
                   onClick={closeMobileMenu}
                 >
-                  Sign Up
+                  Profile
                 </Link>
-              )}
-            </li>
+              </li>
+            )}
+            {!button && (
+              <li className="nav-item">
+                {user ? (
+                  <button className="nav-links-mobile" onClick={handleLogout}>
+                    Logout
+                  </button>
+                ) : (
+                  <Link
+                    to="/sign-up"
+                    className="nav-links-mobile"
+                    onClick={closeMobileMenu}
+                  >
+                    Sign Up
+                  </Link>
+                )}
+              </li>
+            )}
           </ul>
 
           {button &&
