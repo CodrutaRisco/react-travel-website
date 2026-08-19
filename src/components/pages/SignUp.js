@@ -1,7 +1,7 @@
 import React from 'react';
 import "./SignUp.css";
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
 
@@ -65,7 +65,7 @@ export default function SignUp() {
           {message && <p>{message}</p>}
 
           <p>
-            Already have an account? <span>Sign In</span>
+            Already have an account? <Link to="/sign-in">Sign In</Link>
           </p>
         </form>
       </div>
