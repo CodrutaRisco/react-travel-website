@@ -4,12 +4,16 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
+import { useNavigate } from "react-router-dom";
 
 export default function SignUp() {
 
  const [email, setEmail] = useState("");
  const [password, setPassword] = useState("");
  const [message, setMessage] = useState("");
+ const navigate = useNavigate();
+
+ 
 
  const handleSubmit = async (event) => {
    event.preventDefault();
@@ -23,9 +27,7 @@ export default function SignUp() {
 
      console.log(userCredential.user);
 
-     setMessage("Account created successfully!");
-     setEmail("");
-     setPassword("");
+     navigate("/profile");
    } catch (error) {
      console.error("Firebase error code:", error.code);
      console.error("Firebase error message:", error.message);
