@@ -3,8 +3,11 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
 import { Link } from "react-router-dom";
 import "./SignUp.css";
+import { useNavigate } from "react-router-dom";
 
 export default function SignIn() {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -16,14 +19,12 @@ export default function SignIn() {
       const userCredential = await signInWithEmailAndPassword(
         auth,
         email,
-        password
+        password,
       );
 
       console.log("Logged in user:", userCredential.user);
 
-      setMessage("Signed in successfully!");
-      setEmail("");
-      setPassword("");
+      navigate("/"); // Redirect to the home page after successful sign-in
     } catch (error) {
       console.error("Firebase error:", error);
       setMessage("Invalid email or password.");
