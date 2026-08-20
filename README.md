@@ -1,5 +1,7 @@
 # React Travel Website
 
+🔗 **Live Demo:** https://react-travel-website-topaz.vercel.app/
+
 A responsive travel website built with React as part of my practice with React components, routing, responsive web design and user authentication.
 
 This project was initially created by following a YouTube tutorial and was later extended with additional functionality, including Firebase Authentication.
