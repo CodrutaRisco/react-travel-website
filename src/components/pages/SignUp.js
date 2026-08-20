@@ -29,12 +29,17 @@ export default function SignUp() {
 
      navigate("/profile");
    } catch (error) {
-     console.error("Firebase error code:", error.code);
-     console.error("Firebase error message:", error.message);
+     console.error("Firebase error:", error);
 
-     setMessage(`${error.code}: ${error.message}`);
-     //  console.error(error);
-     //  setMessage(error.message);
+  if (error.code === "auth/email-already-in-use") {
+    setMessage("An account with this email already exists.");
+  } else if (error.code === "auth/invalid-email") {
+    setMessage("Please enter a valid email address.");
+  } else if (error.code === "auth/weak-password") {
+    setMessage("Password should be at least 6 characters.");
+  } else {
+    setMessage("Something went wrong. Please try again.");
+  }
    }
  };
 
@@ -64,7 +69,7 @@ export default function SignUp() {
           />
 
           <button type="submit">Sign Up</button>
-          {message && <p>{message}</p>}
+          {message && <p className="auth-message">{message}</p>}
 
           <p>
             Already have an account? <Link to="/sign-in">Sign In</Link>

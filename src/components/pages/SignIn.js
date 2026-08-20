@@ -24,10 +24,10 @@ export default function SignIn() {
 
       console.log("Logged in user:", userCredential.user);
 
-      navigate("/"); // Redirect to the home page after successful sign-in
+      navigate("/"); 
     } catch (error) {
       console.error("Firebase error:", error);
-      setMessage("Invalid email or password.");
+      setMessage("Invalid email or password. Please try again.");
     }
   };
 
@@ -58,7 +58,7 @@ export default function SignIn() {
 
         <button type="submit">Sign In</button>
 
-        {message && <p>{message}</p>}
+        {message && <p className="auth-message">{message}</p>}
 
         <p>
           Don't have an account? <Link to="/sign-up">Sign Up</Link>

@@ -64,3 +64,10 @@
   font-weight: 600;
   cursor: pointer;
 }
+
+.auth-message {
+  color: #d32f2f;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 5px;
+}
